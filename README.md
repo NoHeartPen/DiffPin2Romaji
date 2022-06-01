@@ -1,2 +1,2 @@
 # DiffPin2Romaji
-A tool used to compare Chinese pinyin with romaji.
+A tool used to compare chinese pinyin with japanese romaji.
