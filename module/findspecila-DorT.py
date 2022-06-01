@@ -17,34 +17,26 @@ with open('input.txt', 'r', encoding='UTF-8') as inputfile:
         print(str(n)+'/'+str(allproces))
         Japanseresult = kks.convert(line)
         for item in Japanseresult:
-            CN = p.get_initials(line) # A-B-
+            CN = p.get_initials(line)
             Special = " "
             JP = ''
-            if 'D' in CN:
-                if 'd' in item['hepburn']: # ahai
+            if 'L' in CN:
+                if 'r' in item['hepburn']:
                     if len(item['orig']) != 1:
                         Special = "T"
                         JP = "{} {}".format(item['orig'], item['hepburn'])
-                elif 't' in item['hepburn']:
+                elif 'r' not in item['hepburn']:
                     if len(item['orig']) != 1:
                         Special = "F"
                         JP = "{} {}".format(item['orig'], item['hepburn'])
-                elif 'd' not in item['hepburn']:
-                    if len(item['orig']) != 1:
-                        Special = " "
-                        JP = "{} {}".format(item['orig'], item['hepburn'])
-            elif 'T' in CN:
-                if 't' in item['hepburn']:
+            elif 'N' in CN:
+                if 'n' in item['hepburn']:
                     if len(item['orig']) != 1:
                         Special = "T"
                         JP = "{} {}".format(item['orig'], item['hepburn'])
-                elif 'd' in item['hepburn']:
+                elif 'n' not in item['hepburn']:
                     if len(item['orig']) != 1:
                         Special = "F"
-                        JP = "{} {}".format(item['orig'], item['hepburn'])
-                elif 'd' not in item['hepburn']:
-                    if len(item['orig']) != 1:
-                        Special = " "
                         JP = "{} {}".format(item['orig'], item['hepburn'])
             outputls.append(JP+' '+Special+'\n')
 with open('output.txt', 'w', encoding='UTF-8') as outputfile:
